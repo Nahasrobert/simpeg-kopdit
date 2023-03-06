@@ -18,7 +18,7 @@ include 'koneksi/koneksi.php';
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Google Fonts
 		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="../assets/css/css.css" rel="stylesheet">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -26,7 +26,7 @@ include 'koneksi/koneksi.php';
 		============================================ -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../assets/css/sweetalert.min.js"></script>
     <!-- owl.carousel CSS
 		============================================ -->
     <link rel="stylesheet" href="css/owl.carousel.css">

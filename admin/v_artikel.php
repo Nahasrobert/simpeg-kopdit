@@ -118,11 +118,11 @@
                             <tfoot>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Pegawai</th>
-                                    <th>Tempat artikel</th>
-                                    <th>Tanggal artikel</th>
-                                    <th>SK artikel</th>
-
+                                    <th>Judul</th>
+                                    <th>Isi</th>
+                                    <th>Tanggal</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </tfoot>
                         </table>

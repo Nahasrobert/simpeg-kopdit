@@ -85,6 +85,86 @@
             </div>
         </div>
     </section>
+    <section class="section">
+        <div class="container">
+            <?php
+            include('admin/koneksi/koneksi.php');
+            $p = mysqli_query($con, "SELECT * FROM pegawai");
+            $pj = mysqli_num_rows($p);
+            $c = mysqli_query($con, "SELECT * FROM cuti join pegawai on pegawai.id_pegawai=cuti.id_pegawai");
+            $cj = mysqli_num_rows($c);
+            $k = mysqli_query($con, "SELECT * FROM pensiun join pegawai on pegawai.id_pegawai=pensiun.id_pegawai");
+            $kj = mysqli_num_rows($k);
+            $m = mysqli_query($con, "SELECT * FROM mutasi join pegawai on pegawai.id_pegawai=mutasi.id_pegawai");
+            $mj = mysqli_num_rows($m);
+            $g = mysqli_query($con, "SELECT * FROM gaji join pegawai on pegawai.id_pegawai=gaji.id_pegawai");
+            $gj = mysqli_num_rows($g);
+            $j = mysqli_query($con, "SELECT * FROM jabatan");
+            $jj = mysqli_num_rows($j);
+            ?>
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-md-5" data-aos="fade-up">
+                    <h2 class="section-heading">Total</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="">
+                    <div class="feature-1 text-center">
+                        <div class="wrap-icon icon-1">
+                            <h2 style="color: white;"><?php echo $pj; ?></h2>
+                        </div>
+                        <h3 class="mb-3">Pegawai</h3>
+
+                    </div>
+                </div>
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-1 text-center">
+                        <div class="wrap-icon icon-1">
+                            <h2 style="color: white;"><?php echo $cj; ?></h2>
+                        </div>
+                        <h3 class="mb-3">Cuti</h3>
+                    </div>
+                </div>
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-1 text-center">
+                        <div class="wrap-icon icon-1">
+                            <h2 style="color: white;"><?php echo $kj; ?></h2>
+
+                        </div>
+                        <h3 class="mb-3">Pensiun</h3>
+                    </div>
+                </div>
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-1 text-center">
+                        <div class="wrap-icon icon-1">
+                            <h2 style="color: white;"><?php echo $mj; ?></h2>
+
+                        </div>
+                        <h3 class="mb-3">Mutasi</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-1 text-center">
+                        <div class="wrap-icon icon-1">
+                            <h2 style="color: white;"><?php echo $gj; ?></h2>
+                        </div>
+                        <h3 class="mb-3">Gaji</h3>
+                    </div>
+                </div>
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-1 text-center">
+                        <div class="wrap-icon icon-1">
+                            <h2 style="color: white;"><?php echo $jj; ?></h2>
+                        </div>
+                        <h3 class="mb-3">Jabatan</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <section class="section">
         <div class="container">
