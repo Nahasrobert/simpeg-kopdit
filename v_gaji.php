@@ -51,7 +51,7 @@
                             <?php
                             include 'admin/koneksi/koneksi.php';
                             $no = 1;
-                            $data = mysqli_query($con, "select * from gaji join pegawai on pegawai.id_pegawai=gaji.id_pegawai join jabatan on pegawai.id_jabatan=jabatan.id_jabatan");
+                            $data = mysqli_query($con, "select * from gaji join pegawai on pegawai.id_pegawai=gaji.id_pegawai join jabatan on pegawai.id_jabatan=jabatan.id_jabatan order by id_gaji desc");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>

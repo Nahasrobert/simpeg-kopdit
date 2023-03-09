@@ -50,7 +50,7 @@
                             <?php
                             include 'admin/koneksi/koneksi.php';
                             $no = 1;
-                            $data = mysqli_query($con, "select * from mutasi join pegawai on pegawai.id_pegawai=mutasi.id_pegawai");
+                            $data = mysqli_query($con, "select * from mutasi join pegawai on pegawai.id_pegawai=mutasi.id_pegawai order by id_mutasi desc");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>

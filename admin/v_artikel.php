@@ -92,7 +92,7 @@
                                 <?php
                                 include 'koneksi/koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($con, "select * from artikel");
+                                $data = mysqli_query($con, "select * from artikel order by id_artikel desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>

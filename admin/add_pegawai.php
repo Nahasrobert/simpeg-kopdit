@@ -66,6 +66,23 @@
                                             </div>
                                             <div class="nk-int-st">
                                                 <div class="form-group">
+                                                    <label>NIP</label>
+                                                    <div class="nk-int-st">
+                                                        <input type="text" id="nip" min="18" max="60" required name="nip" class="form-control input-sm" placeholder="Masukan NIP">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-example-wrap">
+                                        <div class="form-group ic-cmp-int">
+                                            <div class="form-ic-cmp">
+                                            </div>
+                                            <div class="nk-int-st">
+                                                <div class="form-group">
                                                     <label>Tempat Lahir</label>
                                                     <div class="nk-int-st">
                                                         <input type="text" required name="tempat_lahir" class="form-control input-sm" placeholder="Tempat Lahir">
@@ -209,6 +226,11 @@
 </div>
 
 </div>
+
+
+
+
+
 
 <!-- End Realtime sts area-->
 <!-- Start Footer area-->

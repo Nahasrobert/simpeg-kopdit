@@ -79,6 +79,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>NIP</th>
                                     <th>Jabatan</th>
                                     <th>Tempat Lahir</th>
                                     <th>Tanggal Lahir</th>
@@ -92,12 +93,13 @@
                                 <?php
                                 include 'koneksi/koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($con, "select * from pegawai join jabatan on jabatan.id_jabatan=pegawai.id_jabatan");
+                                $data = mysqli_query($con, "select * from pegawai join jabatan on jabatan.id_jabatan=pegawai.id_jabatan order by id_pegawai desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $d['nama']; ?></td>
+                                        <td><?php echo $d['id_pegawai']; ?></td>
                                         <td><?php echo $d['jabatan']; ?></td>
                                         <td><?php echo $d['tempat_lahir']; ?></td>
                                         <td><?php echo $d['tgl_lahir']; ?></td>
@@ -120,6 +122,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>NIP</th>
                                     <th>Jabatan</th>
                                     <th>Tempat Lahir</th>
                                     <th>Tanggal Lahir</th>

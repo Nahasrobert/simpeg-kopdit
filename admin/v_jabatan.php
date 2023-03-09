@@ -86,7 +86,7 @@
                                 <?php
                                 include 'koneksi/koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($con, "select * from jabatan");
+                                $data = mysqli_query($con, "select * from jabatan order by id_jabatan");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>

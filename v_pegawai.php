@@ -83,6 +83,21 @@ if (isset($_GET['pesan'])) {
                                 </div>
                                 <div class="nk-int-st">
                                     <div class="form-group">
+                                        <label>NIP</label>
+                                        <div class="nk-int-st">
+                                            <input type="text" required name="nip" class="form-control input-sm" placeholder="Masukan NIP">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
                                         <label>Nama</label>
                                         <div class="nk-int-st">
                                             <input type="text" required name="nama" class="form-control input-sm" placeholder="Nama Lengkap">
@@ -237,6 +252,7 @@ if (isset($_GET['pesan'])) {
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>NIP</th>
                                 <th>Jabatan</th>
                                 <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>
@@ -249,12 +265,13 @@ if (isset($_GET['pesan'])) {
                             <?php
                             include 'admin/koneksi/koneksi.php';
                             $no = 1;
-                            $data = mysqli_query($con, "select * from pegawai join jabatan on jabatan.id_jabatan=pegawai.id_jabatan");
+                            $data = mysqli_query($con, "select * from pegawai join jabatan on jabatan.id_jabatan=pegawai.id_jabatan order by id_pegawai desc");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $d['nama']; ?></td>
+                                    <td><?php echo $d['id_pegawai']; ?></td>
                                     <td><?php echo $d['jabatan']; ?></td>
                                     <td><?php echo $d['tempat_lahir']; ?></td>
                                     <td><?php echo $d['tgl_lahir']; ?></td>
@@ -272,6 +289,7 @@ if (isset($_GET['pesan'])) {
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>NIP</th>
                                 <th>Jabatan</th>
                                 <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>

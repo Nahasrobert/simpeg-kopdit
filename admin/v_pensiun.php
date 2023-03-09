@@ -87,7 +87,7 @@
                                 <?php
                                 include 'koneksi/koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($con, "select * from pensiun join pegawai on pegawai.id_pegawai=pensiun.id_pegawai");
+                                $data = mysqli_query($con, "select * from pensiun join pegawai on pegawai.id_pegawai=pensiun.id_pegawai order by id_pensiun desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
