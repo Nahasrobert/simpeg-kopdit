@@ -8,7 +8,7 @@ if (isset($_GET['pesan'])) {
                   </script>";
     } else if ($pesan == "duplikasi") {
         echo "<script>
-                    swal('Terjadi kesalahan !', 'Data Cuti sudah diajukan!', 'warning');
+                    swal('Terjadi kesalahan !', 'Data Pegawai sudah terdaftar!', 'warning');
                   </script>";
     } else if ($pesan == "hapus") {
         echo "<script>
@@ -271,7 +271,7 @@ if (isset($_GET['pesan'])) {
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $d['nama']; ?></td>
-                                    <td><?php echo $d['id_pegawai']; ?></td>
+                                    <td><?php echo $d['nip']; ?></td>
                                     <td><?php echo $d['jabatan']; ?></td>
                                     <td><?php echo $d['tempat_lahir']; ?></td>
                                     <td><?php echo $d['tgl_lahir']; ?></td>

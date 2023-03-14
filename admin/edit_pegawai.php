@@ -73,6 +73,23 @@
                                                 </div>
                                                 <div class="nk-int-st">
                                                     <div class="form-group">
+                                                        <label>NIP</label>
+                                                        <div class="nk-int-st">
+                                                            <input type="number" value="<?php echo $d['nip']; ?>" required name="nip" class="form-control input-sm" placeholder="Tempat Lahir">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-example-wrap">
+                                            <div class="form-group ic-cmp-int">
+                                                <div class="form-ic-cmp">
+                                                </div>
+                                                <div class="nk-int-st">
+                                                    <div class="form-group">
                                                         <label>Tempat Lahir</label>
                                                         <div class="nk-int-st">
                                                             <input type="text" value="<?php echo $d['tempat_lahir']; ?>" required name="tempat_lahir" class="form-control input-sm" placeholder="Tempat Lahir">

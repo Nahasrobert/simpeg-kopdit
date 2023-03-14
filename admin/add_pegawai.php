@@ -68,7 +68,7 @@
                                                 <div class="form-group">
                                                     <label>NIP</label>
                                                     <div class="nk-int-st">
-                                                        <input type="text" id="nip" min="18" max="60" required name="nip" class="form-control input-sm" placeholder="Masukan NIP">
+                                                        <input type="number"  required name="nip" class="form-control input-sm" placeholder="Masukan NIP">
                                                     </div>
                                                 </div>
                                             </div>

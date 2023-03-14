@@ -4,6 +4,7 @@ include 'koneksi/koneksi.php';
 // menangkap data yang di kirim dari form
 $id_pegawai = $_POST['id_pegawai'];
 $nama = $_POST['nama'];
+$nip = $_POST['nip'];
 $tempat_lahir = $_POST['tempat_lahir'];
 $tgl_lahir = $_POST['tgl_lahir'];
 $jk = $_POST['jk'];
@@ -18,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
     header("location:v_pegawai.php?pesan=duplikasi");
 } else {
 
-    mysqli_query($con, "UPDATE pegawai SET nama = '$nama', tempat_lahir = '$tempat_lahir',tgl_lahir = '$tgl_lahir',jk = '$jk',
+    mysqli_query($con, "UPDATE pegawai SET nama = '$nama',nip = '$nip', tempat_lahir = '$tempat_lahir',tgl_lahir = '$tgl_lahir',jk = '$jk',
     id_jabatan = '$id_jabatan', pend_terakhir= '$pt', status='$status' WHERE id_pegawai = '$id_pegawai'");
     header("location:v_pegawai.php?pesan=update");
 }

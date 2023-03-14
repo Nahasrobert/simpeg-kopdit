@@ -88,8 +88,6 @@
     <!-- End Testimonials Section -->
 
     <!-- ======= CTA Section ======= -->
-
-
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
