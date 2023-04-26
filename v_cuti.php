@@ -54,7 +54,7 @@ if (isset($_GET['pesan'])) {
                             <h1 data-aos="fade-up" data-aos-delay="">Data Cuti</h1>
                             <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Kopdit Sinar Harapan Kabupaten Ngada.</p>
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
-                                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm">+ Ajukan Cuti</a>
+                                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cuti" class="btn btn-primary btn-sm">+ Ajukan Cuti</a>
 
                             </p>
                         </div>
@@ -68,41 +68,29 @@ if (isset($_GET['pesan'])) {
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cuti" tabindex="-1" role="dialog" aria-labelledby="cutiLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajukan Cuti</h5>
+                    <h5 class="modal-title" id="cutiLabel">Ajukan Cuti</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="aksi_cuti.php" enctype="multipart/form-data">
-
                         <div class="form-group">
-                            <label>Nama Pegawai</label>
-
-                            <select name="id_pegawai" class="form-control input-sm">
-                                <option class="hide">-- Silahkan Pilih Pegawai --</option>
                                 <?php
                                 include('admin/koneksi/koneksi.php');
                                 // ambil data dari tabel kota
-                                $sql = "SELECT * FROM pegawai";
+                                $sql = "SELECT * FROM pegawai where nip ='".$_SESSION['nip']."'";
                                 $result = mysqli_query($con, $sql);
-
                                 // tampilkan data ke dalam select option
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<option value='" . $row['id_pegawai'] . "'>" . $row['nama'] . "</option>";
-                                }
-
-                                // bebaskan hasil query
-                                mysqli_free_result($result);
                                 ?>
-                            </select>
-
+                                 <input type="hidden" required name="id_pegawai" value="<?php echo $row['id_pegawai']; ?>" class="form-control input-sm" placeholder="Tanggal Cuti">
+                                <?php } ?>
                         </div>
-
                         <div class="form-group">
                             <label>Tanggal Cuti</label>
                             <input type="date" required name="tgl_cuti" class="form-control input-sm" placeholder="Tanggal Cuti">
@@ -141,7 +129,7 @@ if (isset($_GET['pesan'])) {
                             <?php
                             include 'admin/koneksi/koneksi.php';
                             $no = 1;
-                            $data = mysqli_query($con, "select * from cuti join pegawai on pegawai.id_pegawai=cuti.id_pegawai order by id_cuti desc");
+                            $data = mysqli_query($con, "select * from cuti join pegawai on pegawai.id_pegawai=cuti.id_pegawai where nip ='".$_SESSION['nip']."'");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>

@@ -87,6 +87,7 @@
     </section>
     <section class="section">
         <div class="container">
+            <!-- Menghitung total data -->
             <?php
             include('admin/koneksi/koneksi.php');
             $p = mysqli_query($con, "SELECT * FROM pegawai");
@@ -102,6 +103,7 @@
             $j = mysqli_query($con, "SELECT * FROM jabatan");
             $jj = mysqli_num_rows($j);
             ?>
+               <!-- selesai Menghitung total data -->
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-5" data-aos="fade-up">
                     <h2 class="section-heading">Total</h2>
@@ -166,7 +168,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <center>
                 <h1>Artikel</h1>
@@ -195,7 +197,7 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
 
 
     <!-- ======= Testimonials Section ======= -->

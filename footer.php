@@ -2,7 +2,7 @@
     <div class="row justify-content-center text-center">
         <div class="col-md-7">
             <p class="copyright">
-                &copy; 2023 © SIMPEG. Made with ❤️ By ESC17
+                &copy; 2023 © SIMPEG. Made with ❤️ By KOPDIT
 
             </p>
         </div>

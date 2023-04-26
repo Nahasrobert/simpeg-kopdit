@@ -1,5 +1,14 @@
 <!-- @format -->
 
+<!-- @format -->
+<?php
+//include auth file on all secure pages
+include("authpe.php");
+include 'admin/koneksi/koneksi.php';
+$data = mysqli_query($con, "select * from pegawai where nip ='".$_SESSION['nip']."'");
+while ($d = mysqli_fetch_array($data)) {
+                               
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +41,8 @@
   <link rel="stylesheet" href="admin/css/main.css">
   <link rel="stylesheet" href="admin/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="admin/style.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
   <!-- responsive CSS
 		============================================ -->
@@ -94,23 +105,55 @@
               } ?>>
             <a href="v_pensiun"><i class="fa fa-list-alt" aria-hidden="true"></i>Pensiun</a>
           </li>
-          <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_artikel.php') {
-                echo ' class="active"';
-              } ?>>
-            <a href="v_artikel"><i class="fa fa-handshake-o" aria-hidden="true"></i> Artikel</a>
-          <li <?php if (basename($_SERVER['PHP_SELF']) == 'login.php') {
-                echo ' class="active"';
-              } ?>>
-            <a href="login"><i class="fa fa-handshake-o" aria-hidden="true"></i> Login Admin</a>
-          </li>
-
-
+      
+          <li class="dropdown"><a href="#"><span><?php echo $d['nama']; ?></span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#" data-toggle="modal" data-target="#exampleModal">Ubah Password</a></li>
+                  <li><a href="keluar">Logout</a></li>
+             
+                </ul>
+              </li>
         </ul>
+       
+
+
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
     </div>
+    
   </header>
   <!-- End Header -->
-
+<?php } ?>
   <!-- ======= Hero Section ======= -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form method="post" action="ganti_password.php">
+                    <input type="hidden" name="nip" value="<?= $_SESSION['nip'] ?>">
+                    <div class="form-group">
+                        <label>Masukkan Password Lama Anda!</label>
+                            <input type="password" class="form-control input-sm" name="pass_lama" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Masukkan Password Baru Anda!</label>
+                            <input type="password" class="form-control input-sm" name="pass_baru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Konfirmasi Password Baru Anda!</label>
+                            <input type="password" class="form-control input-sm" name="konfirmasi_pass" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+           
+                </form>
+                </div>
+            </div>
+        </div>
+        </div>

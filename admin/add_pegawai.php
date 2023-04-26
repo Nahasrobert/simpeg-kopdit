@@ -214,13 +214,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-example-wrap">
+                                        <div class="form-group ic-cmp-int">
+                                            <div class="form-ic-cmp">
+                                            </div>
+                                            <div class="nk-int-st">
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <div class="nk-int-st">
+                                                        <input type="text" required name="password" class="form-control input-sm" placeholder="Masukan Password">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                           
 
-                                <div class="form-example-int mg-t-15">
-                                    <button class="btn btn-success notika-btn-success">Simpan</button>
+                                    
                                 </div>
                             </div>
-                        </div>
+                            <center><button class="btn btn-success notika-btn-success">Simpan</button></center>
         </form>
+                                                        </div>
     </div>
 
 </div>

@@ -54,7 +54,7 @@ if (isset($_GET['pesan'])) {
                             <h1 data-aos="fade-up" data-aos-delay="">Data Pegawai</h1>
                             <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Kopdit Sinar Harapan Kabupaten Ngada.</p>
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
-                                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm"> + Pegawai</a>
+                                <!-- <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm"> + Pegawai</a> -->
                             </p>
                         </div>
                     </div>
@@ -265,13 +265,13 @@ if (isset($_GET['pesan'])) {
                             <?php
                             include 'admin/koneksi/koneksi.php';
                             $no = 1;
-                            $data = mysqli_query($con, "select * from pegawai join jabatan on jabatan.id_jabatan=pegawai.id_jabatan order by id_pegawai desc");
+                            $data = mysqli_query($con, "select * from pegawai join jabatan on jabatan.id_jabatan=pegawai.id_jabatan where nip ='".$_SESSION['nip']."'");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $d['nama']; ?></td>
-                                    <td><?php echo $d['id_pegawai']; ?></td>
+                                    <td><?php echo $d['nip']; ?></td>
                                     <td><?php echo $d['jabatan']; ?></td>
                                     <td><?php echo $d['tempat_lahir']; ?></td>
                                     <td><?php echo $d['tgl_lahir']; ?></td>

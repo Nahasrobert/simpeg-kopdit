@@ -99,7 +99,7 @@
                                     <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $d['nama']; ?></td>
-                                        <td><?php echo $d['id_pegawai']; ?></td>
+                                        <td><?php echo $d['nip']; ?></td>
                                         <td><?php echo $d['jabatan']; ?></td>
                                         <td><?php echo $d['tempat_lahir']; ?></td>
                                         <td><?php echo $d['tgl_lahir']; ?></td>
