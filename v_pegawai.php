@@ -8,7 +8,7 @@ if (isset($_GET['pesan'])) {
                   </script>";
     } else if ($pesan == "duplikasi") {
         echo "<script>
-                    swal('Terjadi kesalahan !', 'Data Cuti sudah diajukan!', 'warning');
+                    swal('Terjadi kesalahan !', 'Data Pegawai sudah terdaftar!', 'warning');
                   </script>";
     } else if ($pesan == "hapus") {
         echo "<script>

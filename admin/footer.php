@@ -4,7 +4,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="footer-copy-right">
 					<p>
-						2023 © SIMPEG. Made with ❤️ By ESC17
+						2023 © SIMPEG. Made with ❤️ By SIMPEG
 						<!-- <a href="https://colorlib.com">Colorlib</a>. -->
 					</p>
 				</div>

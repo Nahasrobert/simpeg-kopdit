@@ -20,7 +20,7 @@ $html .= '</style>';
 $html .= '</head><body>';
 $html .= '<center><h1>Laporan Data Pegawai</h1></center>';
 $html .= '<table>';
-$html .= '<tr><th>No</th><th>Nama</th><th>Jabatan</th><th>Tempat_Lahir</th><th>Tanggal lahir</th><th>Jenis Kelamin</th><th>Pend Terakhir</th><th>Status</th></tr>';
+$html .= '<tr><th>No</th><th>Nama</th><th>Jabatan</th><th>Tempat Lahir</th><th>Tanggal lahir</th><th>Jenis Kelamin</th><th>Pend Terakhir</th><th>Status</th></tr>';
 while ($d = mysqli_fetch_array($data)) {
     $html .= '<tr><td>' . $no++ . '</td><td>' . $d['nama'] . '</td><td>' . $d['jabatan'] . '</td><td>' . $d['tempat_lahir'] . '</td><td>' . $d['tgl_lahir'] . '</td><td>' . $d['jk'] . '</td><td>' . $d['pend_terakhir'] . '</td><td>' . $d['status'] . '</td></tr>';
 }

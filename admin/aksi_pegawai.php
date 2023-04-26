@@ -9,6 +9,7 @@ include 'koneksi/koneksi.php';
 
 $nip = $_POST['nip'];
 $nama = $_POST['nama'];
+$nip = $_POST['nip'];
 $tempat_lahir = $_POST['tempat_lahir'];
 $tgl_lahir = $_POST['tgl_lahir'];
 $id_jabatan = $_POST['id_jabatan'];
@@ -16,7 +17,6 @@ $jk = $_POST['jk'];
 $pt = $_POST['pt'];
 $status = $_POST['status'];
 $password = md5($_POST['password']);
-
 
 $sql = "SELECT * FROM pegawai WHERE nip = '$nip'";
 $result = mysqli_query($con, $sql);
