@@ -543,7 +543,32 @@ include 'koneksi/koneksi.php';
                         <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_cuti') {
                                 echo ' class="active"';
                             } ?>>
+                              <a href="v_pegawai"><i class="fa fa-users" aria-hidden="true"></i> Pegawai</a>
+                        </li>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_mutasi') {
+                                echo ' class="active"';
+                            } ?>>
+                            <a href="v_mutasi"><i class="fa fa-arrows" aria-hidden="true"></i> Mutasi</a>
+                        </li>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_cuti') {
+                                echo ' class="active"';
+                            } ?>>
                             <a href="v_cuti"><i class="fa fa-universal-access" aria-hidden="true"></i> Cuti</a>
+                        </li>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_gaji') {
+                                echo ' class="active"';
+                            } ?>>
+                            <a href="v_gaji"><i class="fa fa-money" aria-hidden="true"></i> Gaji</a>
+                        </li>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pensiun') {
+                                echo ' class="active"';
+                            } ?>>
+                            <a href="v_pensiun"><i class="fa fa-list-alt" aria-hidden="true"></i>Pensiun</a>
+                        </li>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_jabatan') {
+                                echo ' class="active"';
+                            } ?>>
+                            <a href="v_jabatan"><i class="fa fa-handshake-o" aria-hidden="true"></i> Jabatan</a>
                         </li>
                         <?php } ?>
                     </ul>

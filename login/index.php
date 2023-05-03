@@ -81,7 +81,8 @@ if ($rows == 1) {
 			
 			<form action="" method="post" name="login" class="login100-form validate-form">
 				<span class="login100-form-title">
-					Login
+					Login 
+					Pegawai
 				</span>
 				<div class="wrap-input100 validate-input" data-validate = "Valid NIP is required">
 					<input class="input100" type="text" name="nip" placeholder="NIP">
@@ -103,6 +104,11 @@ if ($rows == 1) {
 					<button type="submit" name="submit" class="login100-form-btn">
 						Login
 					</button>
+					
+				</div>
+					
+				<div class="container-login100-form-btn">
+				<a href="../loginadm">Login Admin & GM</a>
 				</div>
 
 				<!-- <div class="text-center p-t-12">
@@ -120,6 +126,7 @@ if ($rows == 1) {
 					</a>
 				</div>
 			</form>
+			
 		</div>
 	</div>
 </div>

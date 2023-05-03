@@ -52,7 +52,10 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
+                            <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                 <a href="add_jabatan.php" type="button" data-toggle="tooltip" data-placement="left" title="Tambah Data" class="btn btn-info notika-btn-info btn-sm"><i class="notika-icon notika-plus-symbol"></i></a>
+                                <?php } ?>
                                 <a href="laporan-jabatan.php" type="button" data-toggle="tooltip" data-placement="top" title="Download Report" class="btn btn-primary notika-btn-primary btn-sm"><i class="notika-icon notika-print"></i></a>
                             </div>
                         </div>
@@ -79,7 +82,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Jabatan</th>
+                                    <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                     <th>Aksi</th>
+                                <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,10 +99,13 @@
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $d['jabatan']; ?></td>
                                         <td>
+                                        <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                             <div class="btn-group notika-group-btn">
                                                 <a href="edit_jabatan.php?id=<?php echo $d['id_jabatan']; ?>" type="button" class="btn btn-primary notika-btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                                 <a href="del_jabatan.php?id=<?php echo $d['id_jabatan']; ?>" type="button" class="btn btn-danger notika-btn-danger btn-sm" onclick="return confirm('Yakin Data Akan Dihapus');"><i class="fa fa-trash-o "></i></a>
                                             </div>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php

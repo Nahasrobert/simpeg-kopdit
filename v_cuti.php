@@ -125,7 +125,7 @@ if (isset($_GET['pesan'])) {
                                 <th>Tanggal Cuti</th>
                                 <th>Lama Cuti</th>
                                 <th>Status Cuti</th>
-                                <th>Aksi</th>
+                                <th>#</th>
 
                             </tr>
                         </thead>
@@ -162,8 +162,11 @@ if (isset($_GET['pesan'])) {
                                 </td>
 
                                 <td>
+                                <?php if($d ['status_cuti'] != "diverifikasiGM"){
+                                 ?>
                                     <a href="#" style="color:blue;"data-toggle="modal" data-target="#ubahcuti<?php echo $d['id_cuti']; ?>"><i class="bi bi-pencil-square"></i></a>
                                     <a href="hapus_cuti.php?id=<?php echo $d['id_cuti']; ?>" style="color:red;" onclick="return confirm('Yakin Data Akan Dihapus');"><i class="bi bi-trash"></i></a></td>
+                                    <?php } ?>
                                 </tr>
                             <?php
                             }
@@ -175,6 +178,7 @@ if (isset($_GET['pesan'])) {
                                 <th>Nama Pegawai</th>
                                 <th>Tanggal Cuti</th>
                                 <th>Lama Cuti</th>
+                                <th>Status Cuti</th>
                             </tr>
                         </tfoot>
                     </table>

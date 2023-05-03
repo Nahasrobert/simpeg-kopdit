@@ -52,7 +52,10 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
+                            <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                 <a href="add_gaji.php" type="button" data-toggle="tooltip" data-placement="left" title="Tambah Data" class="btn btn-info notika-btn-info btn-sm"><i class="notika-icon notika-plus-symbol"></i></a>
+                                <?php } ?>
                                 <a href="laporan-gaji.php" type="button" data-toggle="tooltip" data-placement="top" title="Download Report" class="btn btn-primary notika-btn-primary btn-sm"><i class="notika-icon notika-print"></i></a>
                             </div>
                         </div>
@@ -82,8 +85,10 @@
                                     <th>Nama Pegawai</th>
                                     <th>Jabatan</th>
                                     <th>Besar Gaji</th>
+                                    <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                     <th>Aksi</th>
-
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,6 +105,8 @@
                                         </td>
                                         <td>Rp. <?php echo number_format($d['besar_gaji']); ?>
                                         <td>
+                                        <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                             <div class="btn-toolbar" role="toolbar">
                                                 <div class="btn-group notika-group-btn">
                                                     <a href="edit_gaji.php?id=<?php echo $d['id_gaji']; ?>" type="button" class="btn btn-primary notika-btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
@@ -107,6 +114,7 @@
                                                 </div>
 
                                             </div>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php

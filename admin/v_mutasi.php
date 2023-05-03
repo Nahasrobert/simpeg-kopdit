@@ -55,7 +55,10 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
+                            <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                 <a href="add_mutasi.php" type="button" data-toggle="tooltip" data-placement="left" title="Tambah Data" class="btn btn-info notika-btn-info btn-sm"><i class="notika-icon notika-plus-symbol"></i></a>
+                               <?php } ?>
                                 <a href="laporan-mutasi.php" type="button" data-toggle="tooltip" data-placement="top" title="Download Report" class="btn btn-primary notika-btn-primary btn-sm"><i class="notika-icon notika-print"></i></a>
                             </div>
                         </div>
@@ -85,7 +88,10 @@
                                     <th>Tempat Mutasi</th>
                                     <th>Tanggal Mutasi</th>
                                     <th>SK Mutasi</th>
+                                    <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                     <th>Aksi</th>
+                                <?php } ?>
 
                                 </tr>
                             </thead>
@@ -103,6 +109,8 @@
                                         <td><?php echo $d['tgl_mutasi']; ?></td>
                                         <td><a href="berkas-sk/<?php echo $d['sk_mutasi']; ?>" blank="_target"><?php echo $d['sk_mutasi']; ?></a></td>
                                         <td>
+                                        <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                             <div class="btn-toolbar" role="toolbar">
                                                 <div class="btn-group notika-group-btn">
                                                     <a href="edit_mutasi.php?id=<?php echo $d['id_mutasi']; ?>" type="button" class="btn btn-primary notika-btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
@@ -110,6 +118,7 @@
                                                 </div>
 
                                             </div>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php

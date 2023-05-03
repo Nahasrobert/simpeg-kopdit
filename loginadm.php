@@ -115,7 +115,7 @@
     } else {
       $_SESSION['errorMessage'] = true;
       // header("Location: index.php");
-      header("Location: login.php");
+      header("Location: loginadm.php");
       exit();
     }
   } else {
