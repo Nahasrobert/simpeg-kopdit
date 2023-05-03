@@ -21,7 +21,10 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
+                            <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                 <a href="add_cuti.php" type="button" data-toggle="tooltip" data-placement="left" title="Tambah Data" class="btn btn-info notika-btn-info btn-sm"><i class="notika-icon notika-plus-symbol"></i></a>
+                               <?php } ?>
                                 <a href="laporan-cuti.php" type="button" data-toggle="tooltip" data-placement="top" title="Download Report" class="btn btn-primary notika-btn-primary btn-sm"><i class="notika-icon notika-print"></i></a>
                             </div>
                         </div>
@@ -59,7 +62,13 @@
                     echo "<script>
                     swal('Terjadi Kesalahan!', 'Ekstensi tidak sesuai!', 'warning');
                   </script>";
-                } else if ($pesan == "gagaK_ukuran") {
+                }
+                else if ($pesan == "verif") {
+                    echo "<script>
+                    swal('sukses!', 'Berhasil di Verifikasi', 'success');
+                  </script>";
+                }
+                 else if ($pesan == "gagaK_ukuran") {
                     echo "<script>
                 swal('Terjadi Kesalahan!', 'Ukuran maksimal 1 MB!', 'warning');
               </script>";
@@ -82,7 +91,10 @@
                                     <th>Nama Pegawai</th>
                                     <th>Tanggal Cuti</th>
                                     <th>Lama Cuti</th>
-                                    <th>Aksi</th>
+                                    <th>Status Cuti</th>
+                                    <th></th>
+                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,6 +110,49 @@
                                         <td><?php echo $d['tanggal_cuti']; ?></td>
                                         <td><?php echo $d['lama_cuti']; ?></td>
                                         <td>
+                                        <?php if ($_SESSION['level'] == "general manager") {
+                                        ?>
+                                            <a href="#" data-toggle="modal" data-target="#myModalfive<?php echo $d['id_cuti']; ?>"><?php echo $d['status_cuti']; ?></a>
+                                       <?php } ?>
+                                       <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
+                                        <?php echo $d['status_cuti']; ?>
+                                        <?php } ?>
+                                        </td>
+                                       <!-- Modal verifikasi cuti -->
+                                            <div class="modal animated flash" id="myModalfive<?php echo $d['id_cuti']; ?>" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h3>Verifikasi <?php echo $d['nama']; ?></h2>
+                                                <form method="post" action="update_cuti_verifikasi.php" enctype="multipart/form-data">
+                                                <input type="hidden" required name="id_cuti" value="<?php echo $d['id_cuti']; ?>" class="form-control input-sm" placeholder="Lama Cuti">
+                                            <div class="form-group">
+                                                <label>Status Cuti</label>
+                                               <select name="status_cuti" id="" required class="form-control input-sm">
+                                             
+                                               <option value="diverifikasiGM">Verifikasi</option>
+                                                <option value="dibatalkan">Dibatalkan</option>
+
+                                               </select>                   
+                                            </div>
+                                        
+                                    </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button class="btn btn-success notika-btn-success">Simpan</button>
+                                </form>      
+                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                                       
+                                        <td> 
+                                        <?php if ($_SESSION['level'] == "admin") {
+                                        ?>
                                             <div class="btn-toolbar" role="toolbar">
                                                 <div class="btn-group notika-group-btn">
                                                     <a href="edit_cuti.php?id=<?php echo $d['id_cuti']; ?>" type="button" class="btn btn-primary notika-btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
@@ -105,8 +160,12 @@
                                                 </div>
 
                                             </div>
+                                            <?php } ?>
                                         </td>
                                     </tr>
+
+                                    
+
                                 <?php
                                 }
                                 ?>
@@ -126,6 +185,7 @@
         </div>
     </div>
 </div>
+                               
 <!-- End Realtime sts area-->
 <!-- Start Footer area-->
 <?php include 'footer.php' ?>

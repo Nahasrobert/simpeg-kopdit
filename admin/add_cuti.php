@@ -35,6 +35,8 @@
 <div class="data-table-area">
     <div class="container">
         <form method="post" action="aksi_cuti.php" enctype="multipart/form-data">
+        <input type="hidden" required name="status_cuti" value="diajukan" class="form-control input-sm" placeholder="Tanggal Cuti">
+
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap">

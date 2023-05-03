@@ -79,6 +79,8 @@ if (isset($_GET['pesan'])) {
                 </div>
                 <div class="modal-body">
                     <form method="post" action="aksi_cuti.php" enctype="multipart/form-data">
+                    <input type="hidden" required name="status_cuti" value="diajukan" class="form-control input-sm" placeholder="Lama Cuti">
+
                         <div class="form-group">
                                 <?php
                                 include('admin/koneksi/koneksi.php');
@@ -122,6 +124,9 @@ if (isset($_GET['pesan'])) {
                                 <th>Nama Pegawai</th>
                                 <th>Tanggal Cuti</th>
                                 <th>Lama Cuti</th>
+                                <th>Status Cuti</th>
+                                <th>Aksi</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -137,7 +142,28 @@ if (isset($_GET['pesan'])) {
                                     <td><?php echo $d['nama']; ?></td>
                                     <td><?php echo $d['tanggal_cuti']; ?></td>
                                     <td><?php echo $d['lama_cuti']; ?></td>
+                                    <td>
+                                <?php if($d ['status_cuti'] == "diajukan"){
+                                 ?>
+                                    <span style="color: blue;"><?php echo $d['status_cuti']; ?></span>
+                                 <?php } ?>    
+                                 
+                                 <?php if($d ['status_cuti'] == "diverifikasiGM"){
+                                 ?>
+                                    <span style="color: green;"><?php echo $d['status_cuti']; ?></span>
+                                 <?php } ?>      
+                                 
+                                 <?php if($d ['status_cuti'] == "dibatalkan"){
+                                 ?>
+                                    <span style="color: red;"><?php echo $d['status_cuti']; ?></span>
+                                 <?php } ?>      
+                                  
+                                  
+                                </td>
 
+                                <td>
+                                    <a href="#" style="color:blue;"data-toggle="modal" data-target="#ubahcuti<?php echo $d['id_cuti']; ?>"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="hapus_cuti.php?id=<?php echo $d['id_cuti']; ?>" style="color:red;" onclick="return confirm('Yakin Data Akan Dihapus');"><i class="bi bi-trash"></i></a></td>
                                 </tr>
                             <?php
                             }
@@ -159,7 +185,47 @@ if (isset($_GET['pesan'])) {
             </div>
         </div>
     </section>
+    <?php
+    include 'admin/koneksi/koneksi.php';
+                            $no = 1;
+                            $data = mysqli_query($con, "select * from cuti join pegawai on pegawai.id_pegawai=cuti.id_pegawai where nip ='".$_SESSION['nip']."'");
+                            while ($d = mysqli_fetch_array($data)) {
+                            ?>
+    <div class="modal fade" id="ubahcuti<?php echo $d['id_cuti']; ?>" tabindex="-1" role="dialog" aria-labelledby="cutiLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cutiLabel">Ubah Cuti</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="ubah_cuti.php" enctype="multipart/form-data">
+                    <input type="hidden" required name="id_cuti" value="<?php echo $d['id_cuti']; ?>" class="form-control input-sm" placeholder="Lama Cuti">
 
+                    <input type="hidden" required name="status_cuti" value="<?php echo $d['status_cuti']; ?>" class="form-control input-sm" placeholder="Lama Cuti">
+                    <input type="hidden" required name="id_pegawai" value="<?php echo $d['id_pegawai']; ?>" class="form-control input-sm" placeholder="Lama Cuti">
+
+                      
+                        <div class="form-group">
+                            <label>Tanggal Cuti</label>
+                            <input type="date" required name="tgl_cuti" value="<?php echo $d['tanggal_cuti']; ?>" class="form-control input-sm" placeholder="Tanggal Cuti">
+                        </div>
+                        <div class="form-group">
+                            <label>Lama Cuti</label>
+                            <input type="text" required name="lama_cuti" value="<?php echo $d['lama_cuti']; ?>" class="form-control input-sm" placeholder="Lama Cuti">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success notika-btn-success">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
     <!-- ======= Testimonials Section ======= -->
     <!-- End Testimonials Section -->
 

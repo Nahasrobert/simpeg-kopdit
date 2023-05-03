@@ -89,14 +89,29 @@
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($con, $password);
     //Checking is user existing in the database or not
-    $query = "SELECT * FROM `admin` WHERE username='$username'
-and password='" . md5($password) . "'";
-    $result = mysqli_query($con, $query) or die(mysqli_error());
-    $rows = mysqli_num_rows($result);
-    if ($rows == 1) {
-      $_SESSION['username'] = $username;
-      // Redirect user to index.php
-      header("Location: admin/index.php");
+    $query = mysqli_query($con,"select * from admin where username='$username' and password='" . md5($password) . "'");
+    $rows = mysqli_num_rows($query);
+    if ($rows > 0 ) {
+      $data = mysqli_fetch_assoc($query);
+      if($data['level']=="admin"){
+ 
+        // buat session login dan username
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "admin";
+        // alihkan ke halaman dashboard admin
+        header("location:admin/index");
+     
+      // cek jika user login sebagai pegawai
+      }
+      else if($data['level']=="general manager"){
+        // buat session login dan username
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "general manager";
+        // alihkan ke halaman dashboard pegawai
+        header("location:admin/index");
+     
+      // cek jika user login sebagai pengurus
+      }
     } else {
       $_SESSION['errorMessage'] = true;
       // header("Location: index.php");

@@ -20,9 +20,9 @@ $html .= '</style>';
 $html .= '</head><body>';
 $html .= '<center><h1>Laporan Data Cuti</h1></center>';
 $html .= '<table>';
-$html .= '<tr><th>No</th><th>Nama</th><th>Tanggal Cuti</th><th>Lama Cuti</th></tr>';
+$html .= '<tr><th>No</th><th>Nama</th><th>Tanggal Cuti</th><th>Lama Cuti</th><th>Status Cuti</th></tr>';
 while ($d = mysqli_fetch_array($data)) {
-    $html .= '<tr><td>' . $no++ . '</td><td>' . $d['nama'] . '</td><td>' . $d['tanggal_cuti'] . '</td><td>' . $d['lama_cuti'] . '</td></tr>';
+    $html .= '<tr><td>' . $no++ . '</td><td>' . $d['nama'] . '</td><td>' . $d['tanggal_cuti'] . '</td><td>' . $d['lama_cuti'] .'</td><td>'. $d['status_cuti'] .  '</td></tr>';
 }
 $html .= '</table>';
 $html .= '</body></html>';

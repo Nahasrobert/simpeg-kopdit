@@ -360,7 +360,7 @@ include 'koneksi/koneksi.php';
                                                     </div>
                                                 </div>
                                                 <div class="hd-mg-ctn">
-                                                    <h3> <?php echo $_SESSION['username']; ?></h3>
+                                                    <h3> <?php echo $_SESSION['username']; ?><br><?php echo $_SESSION['level']; ?></h3>
                                                     <p>Kopdit Sinar Harapan</p>
                                                 </div>
                                             </div>
@@ -483,52 +483,69 @@ include 'koneksi/koneksi.php';
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+                    <?php if ($_SESSION['level'] == "admin") {
+                            
+                                ?>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'index') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="index"><i class="notika-icon notika-house"></i> Beranda</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pegawai.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pegawai') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_pegawai"><i class="fa fa-users" aria-hidden="true"></i> Pegawai</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_mutasi.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_mutasi') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_mutasi"><i class="fa fa-arrows" aria-hidden="true"></i> Mutasi</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_cuti.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_cuti') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_cuti"><i class="fa fa-universal-access" aria-hidden="true"></i> Cuti</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_gaji.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_gaji') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_gaji"><i class="fa fa-money" aria-hidden="true"></i> Gaji</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pensiun.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pensiun') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_pensiun"><i class="fa fa-list-alt" aria-hidden="true"></i>Pensiun</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_jabatan.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_jabatan') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_jabatan"><i class="fa fa-handshake-o" aria-hidden="true"></i> Jabatan</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'edit_profil.php') {
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'edit_profil') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="edit_profil"><i class="fa fa-address-card" aria-hidden="true"></i> Profil</a>
                         </li>
-                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_artikel.php') {
+                        <!-- <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_artikel') {
                                 echo ' class="active"';
                             } ?>>
                             <a href="v_artikel"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Artikel</a>
+                        </li> -->
+                        <?php } ?>
+                        <?php if ($_SESSION['level'] == "general manager") {
+                            
+                            ?>
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'index') {
+                                echo ' class="active"';
+                            } ?>>
+                            <a href="index"><i class="notika-icon notika-house"></i> Beranda</a>
                         </li>
-
+                        <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_cuti') {
+                                echo ' class="active"';
+                            } ?>>
+                            <a href="v_cuti"><i class="fa fa-universal-access" aria-hidden="true"></i> Cuti</a>
+                        </li>
+                        <?php } ?>
                     </ul>
                     <!-- <div class="tab-content custom-menu-content">
                         <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">

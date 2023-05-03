@@ -21,11 +21,10 @@
 <script src="assets/js/main.js"></script>
 
 <script src="admin/js/vendor/jquery-1.12.4.min.js"></script>
-<!-- bootstrap JS
-		============================================ -->
 
 
-<script src="admin/js/data-table/jquery.dataTables.min.js"></script> -->
+
+<script src="admin/js/data-table/jquery.dataTables.min.js"></script>
 <script src="admin/js/data-table/data-table-act.js"></script>
 <script src="assets/css/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="assets/css/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
