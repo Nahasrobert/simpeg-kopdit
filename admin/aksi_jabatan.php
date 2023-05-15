@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0) {
     header("location:v_jabatan.php?pesan=duplikasi");
 } else {
 
-    mysqli_query($con, "insert into jabatan values('','$jabatan')");
+    mysqli_query($con, "insert into jabatan values('','$jabatan','".date("  Y-m-d H:i:s")."')");
     header("location:v_jabatan.php?pesan=input");
 }
 

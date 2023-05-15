@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
     header("location:v_cuti.php?pesan=duplikasi");
 } else {
 
-    mysqli_query($con, "insert into cuti values('','$id_pegawai','$tgl','$lama','$status')");
+    mysqli_query($con, "insert into cuti values('','$id_pegawai','$tgl','$lama','$status','".date("  Y-m-d H:i:s")."')");
     header("location:v_cuti.php?pesan=input");
 }
 

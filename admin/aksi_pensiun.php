@@ -18,7 +18,7 @@ if (mysqli_num_rows($result) > 0) {
     header("location:v_pensiun.php?pesan=duplikasi");
 } else {
 
-    mysqli_query($con, "insert into pensiun values('','$id_pegawai','$tgl')");
+    mysqli_query($con, "insert into pensiun values('','$id_pegawai','$tgl','".date("  Y-m-d H:i:s")."')");
     header("location:v_pensiun.php?pesan=input");
 }
 

@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0) {
     header("location:v_gaji.php?pesan=duplikasi");
 } else {
 
-    mysqli_query($con, "insert into gaji values('','$id_pegawai','$besar_gaji')");
+    mysqli_query($con, "insert into gaji values('','$id_pegawai','$besar_gaji','".date("  Y-m-d H:i:s")."')");
     header("location:v_gaji.php?pesan=input");
 }
 

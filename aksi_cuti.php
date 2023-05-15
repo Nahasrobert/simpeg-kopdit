@@ -12,7 +12,7 @@ $lama = $_POST['lama_cuti'];
 $status = $_POST['status_cuti'];
 
 // $sk = $_POST['sk_cuti'];
-    mysqli_query($con, "insert into cuti values('','$id_pegawai','$tgl','$lama','$status')");
+    mysqli_query($con, "insert into cuti values('','$id_pegawai','$tgl','$lama','$status','".date("  Y-m-d H:i:s")."')");
     header("location:v_cuti.php?pesan=input");
 
   

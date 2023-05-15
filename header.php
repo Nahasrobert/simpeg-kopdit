@@ -68,7 +68,7 @@ while ($d = mysqli_fetch_array($data)) {
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="logo">
-        <h1><a href="index.html">SIMPEG</a></h1>
+        <h1><a href="#">SIMPEG</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -80,11 +80,11 @@ while ($d = mysqli_fetch_array($data)) {
               } ?>>
             <a href="index"><i class="notika-icon notika-house"></i> Beranda</a>
           </li>
-          <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pegawai.php') {
+          <!-- <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_pegawai.php') {
                 echo ' class="active"';
               } ?>>
             <a href="v_pegawai"><i class="fa fa-users" aria-hidden="true"></i> Pegawai</a>
-          </li>
+          </li> -->
           <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_mutasi.php') {
                 echo ' class="active"';
               } ?>>
@@ -107,7 +107,10 @@ while ($d = mysqli_fetch_array($data)) {
           </li>
       
           <li class="dropdown"><a href="#"><span><?php echo $d['nama']; ?></span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
+                <ul>   
+                <li><a href="#" data-toggle="modal" data-target="#ubahpegawai<?php echo $d['id_pegawai']; ?>">Profil</a></li>
+         
+               
                   <li><a href="#" data-toggle="modal" data-target="#exampleModal">Ubah Password</a></li>
                   <li><a href="keluar">Logout</a></li>
              
@@ -115,16 +118,208 @@ while ($d = mysqli_fetch_array($data)) {
               </li>
         </ul>
        
-
+      
 
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
     </div>
     
+
+    
   </header>
+
+                     
+                        
+  <div class="modal fade" id="ubahpegawai<?php echo $d['id_pegawai']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Pegawai</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="ubah_pegawai.php" enctype="multipart/form-data">
+                    <input type="hidden" required name="id_pegawai" value="<?php echo $d['id_pegawai']; ?>" class="form-control input-sm" placeholder="Masukan NIP">
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>NIP</label>
+                                        <div class="nk-int-st">
+                                            <input type="text" readonly name="nip" value="<?php echo $d['nip']; ?>" class="form-control input-sm" placeholder="Masukan NIP">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Nama</label>
+                                        <div class="nk-int-st">
+                                            <input type="text" required name="nama" value="<?php echo $d['nama']; ?>" class="form-control input-sm" placeholder="Nama Lengkap">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Tempat Lahir</label>
+                                        <div class="nk-int-st">
+                                            <input type="text" required name="tempat_lahir" value="<?php echo $d['tempat_lahir']; ?>" class="form-control input-sm" placeholder="Tempat Lahir">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Tanggal Lahir</label>
+                                        <div class="nk-int-st">
+                                            <input type="date" required name="tgl_lahir" value="<?php echo $d['tgl_lahir']; ?>" class="form-control input-sm" placeholder="Tempat Mutasi">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Jabatan</label>
+                                        <div class="nk-int-st">
+                                        <select name="id_jabatan" class="form-control" required data-live-search="true">
+                                                                <?php
+                                                                $query_jab = "SELECT * FROM jabatan";
+                                                                $sql_jab = mysqli_query($con, $query_jab);
+                                                                while ($jab = mysqli_fetch_assoc($sql_jab)) {
+                                                                    if ($d['id_jabatan'] == $jab['id_jabatan']) {
+                                                                        $select = "selected";
+                                                                    } else {
+                                                                        $select = "";
+                                                                    }
+                                                                    echo "<option value='$jab[id_jabatan]' size='20' $select>$jab[jabatan]</option>";
+                                                                }
+                                                                ?>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Jenis Kelamin</label>
+                                        <div class="nk-int-st">
+                                        <?php $jk = $d['jk']; ?>
+                                        <select name="jk" class="form-control" required data-live-search="true">
+                                            <option type="disible">-- Silahkan Pilih --</option>
+                                            <option <?php echo ($jk == 'Laki-laki') ? "selected" : "" ?>>Laki-laki</option>
+                                            <option <?php echo ($jk == 'Perempuan') ? "selected" : "" ?>>Perempuan</option>
+                                        </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Pendidikan Terakhir</label>
+                                        <div class="nk-int-st">
+                                                            <?php $pt = $d['pend_terakhir']; ?>
+
+                                                            <select name="pt" class="form-control" required data-live-search="true">
+                                                                <option type="disible">-- Silahkan Pilih --</option>
+                                                                <option <?php echo ($pt == 'TAMAT SD / SEDERAJAT') ? "selected" : "" ?>>TAMAT SD / SEDERAJAT</option>
+                                                                <option <?php echo ($pt == 'TIDAK / BELUM SEKOLAH') ? "selected" : "" ?>>TIDAK / BELUM SEKOLAH</option>
+                                                                <option <?php echo ($pt == 'SLTA / SEDERAJAT') ? "selected" : "" ?>>SLTA / SEDERAJAT</option>
+                                                                <option <?php echo ($pt == 'SLTP/SEDERAJAT') ? "selected" : "" ?>>SLTP/SEDERAJAT</option>
+                                                                <option <?php echo ($pt == 'BELUM TAMAT SD/SEDERAJAT') ? "selected" : "" ?>>BELUM TAMAT SD/SEDERAJAT</option>
+                                                                <option <?php echo ($pt == 'DIPLOMA IV/ STRATA I') ? "selected" : "" ?>>DIPLOMA IV/ STRATA I</option>
+                                                                <option <?php echo ($pt == 'DIPLOMA I / II') ? "selected" : "" ?>>DIPLOMA I / II</option>
+                                                                <option <?php echo ($pt == 'AKADEMI/ DIPLOMA III/S. MUDA') ? "selected" : "" ?>>AKADEMI/ DIPLOMA III/S. MUDA</option>
+                                                                <option <?php echo ($pt == 'STRATA II') ? "selected" : "" ?>>STRATA II</option>
+                                                                <option <?php echo ($pt == 'STRATA III') ? "selected" : "" ?>>STRATA III</option>
+                                                            </select>
+
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-example-wrap">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                </div>
+                                <div class="nk-int-st">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <div class="nk-int-st">
+                                                            <?php $status = $d['status']; ?>
+                                                            <select name="status" class="form-control" required data-live-search="true">
+                                                                <option type="disible">-- Silahkan Pilih --</option>
+                                                                <option <?php echo ($status == 'Kawin') ? "selected" : "" ?>>Kawin</option>
+                                                                <option <?php echo ($status == 'Belum Kawin') ? "selected" : "" ?>>Belum Kawin
+                                                            </select>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success notika-btn-success">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+  </div>
   <!-- End Header -->
 <?php } ?>
+
+
+
+
+
+
+
   <!-- ======= Hero Section ======= -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -157,3 +352,6 @@ while ($d = mysqli_fetch_array($data)) {
             </div>
         </div>
         </div>
+        
+
+        

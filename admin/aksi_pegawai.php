@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
     header("location:v_pegawai.php?pesan=duplikasi");
 } else {
 
-    mysqli_query($con, "insert into pegawai values('','$nip','$nama','$tempat_lahir','$tgl_lahir','$jk','$id_jabatan','$pt','$status','$password')");
+    mysqli_query($con, "insert into pegawai values('','$nip','$nama','$tempat_lahir','$tgl_lahir','$jk','$id_jabatan','$pt','$status','$password','".date("  Y-m-d H:i:s")."')");
     header("location:v_pegawai.php?pesan=input");
 }
 

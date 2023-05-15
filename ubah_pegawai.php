@@ -16,9 +16,9 @@ $sql = "SELECT * FROM pegawai WHERE nama = '$nama' and nama =! '$nama' ";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    header("location:v_pegawai.php?pesan=duplikasi");
+    header("location:index.php?pesan=duplikasi");
 } else {
     mysqli_query($con, "UPDATE pegawai SET nama = '$nama',nip = '$nip', tempat_lahir = '$tempat_lahir',tgl_lahir = '$tgl_lahir',jk = '$jk',
     id_jabatan = '$id_jabatan', pend_terakhir= '$pt', status='$status' WHERE id_pegawai = '$id_pegawai'");
-    header("location:v_pegawai.php?pesan=update");
+    header("location:index.php?pesan=update");
 }

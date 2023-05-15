@@ -30,7 +30,7 @@ if (!in_array($ext, $ekstensi)) {
         if ($ukuran < 1044070) {
             $xx = $rand . '_' . $filename;
             move_uploaded_file($_FILES['sk_mutasi']['tmp_name'], 'berkas-sk/' . $rand . '_' . $filename);
-            mysqli_query($con, "insert into mutasi values('','$id_pegawai','$tmpt','$tgl','$xx')");
+            mysqli_query($con, "insert into mutasi values('','$id_pegawai','$tmpt','$tgl','$xx','".date("  Y-m-d H:i:s")."')");
             header("location:v_mutasi.php?pesan=input");
         } else {
             header("location:index.php?alert=gagak_ukuran");

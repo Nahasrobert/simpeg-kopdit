@@ -4,11 +4,7 @@
 <!-- Start Status area -->
 <div class="breadcomb-area">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcomb-list">
-                    <div class="row">
-                        <?php
+    <?php
                         if (isset($_GET['pesan'])) {
                             $pesan = $_GET['pesan'];
                             if ($pesan == "input") {
@@ -38,34 +34,59 @@
                             }
                         }
                         ?>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        
+        
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                             <div class="breadcomb-wp">
                                 <div class="breadcomb-icon">
                                     <i class="notika-icon notika-windows"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-
                                     <h2>Data Mutasi</h2>
+                                    
                                     <p>Olah Data <span class="bread-ntd">Mutasi</span></p>
+                                  
+                                   
+                        
                                 </div>
                             </div>
-
-
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
-                            <div class="breadcomb-report">
-                            <?php if ($_SESSION['level'] == "admin") {
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <?php if ($_SESSION['level'] == "admin") {
                                         ?>
                                 <a href="add_mutasi.php" type="button" data-toggle="tooltip" data-placement="left" title="Tambah Data" class="btn btn-info notika-btn-info btn-sm"><i class="notika-icon notika-plus-symbol"></i></a>
-                               <?php } ?>
-                                <a href="laporan-mutasi.php" type="button" data-toggle="tooltip" data-placement="top" title="Download Report" class="btn btn-primary notika-btn-primary btn-sm"><i class="notika-icon notika-print"></i></a>
-                            </div>
+                               <?php } ?>      
+                    </div>
+
+
+
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                       
+                        <form action="laporan-mutasi.php" method="get">
+                      
+                        <select name="tahun" required class="form-control">
+                        <option  value="" selected disabled >-- Pilih Tahun --</option>
+                        <?php
+                        for($i=date('Y'); $i>=date('Y')-32; $i-=1){
+                        echo"<option value='$i'> $i </option>";
+                            }
+                        ?>
+                    </select>
+               
+
+
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <button type="submit" class="btn btn-primary notika-btn-primary btn-sm"> Cetak</button>
+                     
+                    </form>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 <!-- Breadcomb area End-->
