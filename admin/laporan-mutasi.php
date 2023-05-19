@@ -25,7 +25,7 @@ $html .= '.table1 {
 th,
 td {
     border: 1px solid #000;
-    padding: 8px 20px;
+    padding: 20px 10px;
 }
 
 .demo-content {
@@ -53,8 +53,11 @@ td {
 }
 
 .letter_head td.one {
-    width: 130px;
+    width: 200px;
     border: none;
+    margin-top:12px;
+    text-align: right;
+
 
 
 }
@@ -79,17 +82,19 @@ td {
 
 .letter_head .title-1 {
     font-weight: bold;
+    margin-left:-130px;
 }
 
 .letter_head .title-2 {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
-    font-size: 1.7em;
+    font-size: 5.7em;
     letter-spacing: 2px;
 }
 
 .letter_head .title-3 {
-    font-size: 80%;
+    font-size: 100%;
+    margin-left:-130px;
 }
 
 .letter_head .title-4 {
@@ -141,7 +146,7 @@ $html .= '</head><body>';
 $html .= '<table class="letter_head">
 <tr>
     <td class="one">
-        <img class="logo" alt="Logo" src="img/favicon.png" width="80" height="80" />
+        <img class="logo" alt="Logo" src="img/favicon.png" width="80" height="75" />
     </td>
     <td class="two">
         <div class="title title-1">

@@ -105,6 +105,11 @@ while ($d = mysqli_fetch_array($data)) {
               } ?>>
             <a href="v_pensiun"><i class="fa fa-list-alt" aria-hidden="true"></i>Pensiun</a>
           </li>
+          <li <?php if (basename($_SERVER['PHP_SELF']) == 'v_jabatan.php') {
+                echo ' class="active"';
+              } ?>>
+            <a href="v_jabatan"><i class="fa fa-list-alt" aria-hidden="true"></i>Jabatan</a>
+          </li>
       
           <li class="dropdown"><a href="#"><span><?php echo $d['nama']; ?></span> <i class="bi bi-chevron-right"></i></a>
                 <ul>   
@@ -124,9 +129,6 @@ while ($d = mysqli_fetch_array($data)) {
       </nav>
       <!-- .navbar -->
     </div>
-    
-
-    
   </header>
 
                      
